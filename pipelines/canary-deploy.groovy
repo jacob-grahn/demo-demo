@@ -1,6 +1,6 @@
 podTemplate {
     node(POD_LABEL) {
-        witchCredentials([
+        withCredentials([
             file(credentialsId: 'terraform-service-account', variable: 'GOOGLE_APPLICATION_CREDENTIALS')
         ]) {
 
