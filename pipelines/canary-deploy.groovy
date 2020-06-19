@@ -31,19 +31,20 @@ podTemplate (containers: [
                 }
 
                 stage('Deploy Canary') {
-                    sh 'terraform apply'
+                    sh 'terraform apply --auto-approve -input=false'
                 }
 
                 stage('Smoke Test Canary') {
                     print('Smoke tests passed!')
+                    input('Does canary look good? Proceed with full deploy?')
                 }
 
                 stage('Deploy Primary') {
-                    sh 'terraform apply'
+                    sh 'terraform apply --auto-approve -input=false'
                 }
 
                 stage('Tear Down Canary') {
-                    sh 'terraform apply'
+                    sh 'terraform apply --auto-approve -input=false'
                 }
             }
         }
