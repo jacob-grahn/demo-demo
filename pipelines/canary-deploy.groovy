@@ -1,7 +1,7 @@
 podTemplate {
     node(POD_LABEL) {
         witchCredentials([
-            file(credentialsId: 'terraform-service-account', 'GOOGLE_APPLICATION_CREDENTIALS')
+            file(credentialsId: 'terraform-service-account', variable: 'GOOGLE_APPLICATION_CREDENTIALS')
         ]) {
 
             stage('Checkout') {
