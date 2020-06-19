@@ -1,4 +1,10 @@
-podTemplate {
+podTemplate (containers: [
+    containerTemplate(
+        name: 'jnlp',
+        image: 'gcr.io/brightinsight-demo/jenkins-worker-image',
+        alwaysPullImage: false
+    )
+]) {
     node(POD_LABEL) {
         withCredentials([
             file(credentialsId: 'terraform-service-account', variable: 'GOOGLE_APPLICATION_CREDENTIALS')
