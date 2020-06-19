@@ -1,1 +1,2 @@
 variable "replicas" {}
+variable "name" {}
