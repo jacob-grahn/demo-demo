@@ -1,2 +1,1 @@
 variable "replicas" {}
-variable "name" {}
